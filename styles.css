@@ -296,7 +296,11 @@ body.is-loaded .hero-h1 .ln:nth-child(2)>span{transform:none;transition-delay:.1
 @keyframes zmPulse{0%{transform:scale(1);opacity:.35}70%{transform:scale(1.9);opacity:0}100%{opacity:0}}
 .zones-grid2 + .zone-list{margin-top:clamp(2rem,4vw,3rem)}
 @media (min-width:781px){ .zones .zone-list{display:none} }
-@media (max-width:780px){ .zone-map-wrap,.zone-detail{display:none} .zones-grid2{grid-template-columns:1fr} }
+@media (max-width:780px){
+  .zones-grid2{grid-template-columns:1fr;gap:2rem}
+  .zone-detail{display:none}
+  .zone-map-wrap{max-width:340px;margin:.5rem auto 0}
+}
 
 /* Estimateur de prix (Phase 4) */
 .estimator .sec-head{text-align:center;margin-inline:auto}
@@ -575,3 +579,46 @@ summary:focus-visible,[tabindex]:focus-visible,.est-opt:focus-visible{
   padding:.75rem 1.2rem;border-radius:0 0 10px 10px;font-family:var(--sans);font-weight:600;font-size:.95rem;
   transition:top .25s var(--ease)}
 .skip:focus{top:0}
+
+/* =========================================================
+   PHASE 6 — mobile premium (effets sans 3D)
+   ========================================================= */
+
+/* Barre de progression de lecture */
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:90;transform-origin:0 50%;
+  transform:scaleX(0);background:linear-gradient(90deg,var(--green-tx),var(--green));pointer-events:none;
+  transition:opacity .3s}
+
+/* Cartes empilées version mobile/tablette (< sticky desktop) */
+@media (max-width:999px){
+  .stack>.section{position:relative;z-index:1;border-radius:30px 30px 0 0;
+    box-shadow:0 -22px 55px -30px rgba(18,48,42,.5)}
+  .stack>.tarifs{background:#E8F3EE}
+  .stack>.faq{background:#D2E7DD}
+  .stack>.faq,.stack>.contact{margin-top:-2.4rem}
+  .stack>.section>.wrap{padding-top:.8rem}
+}
+
+/* Parallaxe (appliquée en JS) */
+[data-parallax]{will-change:transform}
+
+/* Fiche contact : empilée sur petit écran (évite le débordement) */
+@media (max-width:560px){
+  .contact-meta>div{flex-direction:column;gap:.15rem}
+  .contact-meta dt{min-width:0}
+  .contact-meta dd{word-break:break-word}
+}
+
+/* Retour tactile au toucher (appareils sans survol) */
+@media (hover:none){
+  .btn:active{transform:scale(.96)}
+  .srv:active{background:rgba(134,191,170,.1)}
+  .est-opt:active{border-color:var(--green);background:rgba(134,191,170,.16);transform:scale(.98)}
+  .zone:active{background:rgba(134,191,170,.1)}
+  .zone:active .zone-cp{color:var(--green-tx)}
+  .qa summary:active{color:var(--green-tx)}
+  .callbar:active{background:#0c1813}
+  .znode:active .znode-dot{fill:var(--green);stroke:var(--green-tx)}
+  .link-arrow:active{border-color:var(--ink)}
+  .hdr-phone:active .hdr-phone-num{color:var(--green-tx)}
+}

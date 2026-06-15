@@ -475,6 +475,36 @@
     }
   })();
 
+  /* Barre de progression de lecture + parallaxe au scroll */
+  (function () {
+    var bar = document.getElementById('scrollProgress');
+    var pxEls = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+    if (!bar && !pxEls.length) return;
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      if (bar) {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0).toFixed(4) + ')';
+      }
+      if (!reduce && pxEls.length) {
+        var vh = window.innerHeight;
+        pxEls.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.bottom < -200 || r.top > vh + 200) return;
+          var rel = ((r.top + r.height / 2) - vh / 2) / vh;
+          var speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
+          el.style.transform = 'translate3d(0,' + (rel * speed * -100).toFixed(1) + 'px,0)';
+        });
+      }
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  })();
+
   /* Année */
   var year = document.getElementById('year');
   if (year) { try { year.textContent = new Date().getFullYear(); } catch (e) {} }

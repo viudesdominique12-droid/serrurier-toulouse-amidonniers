@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=14" />
 
   <script type="application/ld+json">
   {
@@ -75,6 +75,7 @@
 <body>
 
 <a href="#top" class="skip">Aller au contenu</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <!-- ============ PRÉCHARGEUR ============ -->
 <div class="preloader" id="preloader" aria-hidden="true">
@@ -253,7 +254,7 @@
           <div><dt>Au plus près</dt><dd>100 % local, au cœur des quartiers</dd></div>
         </dl>
       </div>
-      <div class="velo-art" aria-hidden="true">
+      <div class="velo-art" aria-hidden="true" data-parallax="0.14">
         <svg class="bike" viewBox="0 0 260 170" width="100%">
           <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
             <circle class="wheel" cx="58" cy="118" r="40"/>
@@ -529,6 +530,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
-<script src="script.js?v=11"></script>
+<script src="script.js?v=12"></script>
 </body>
 </html>
