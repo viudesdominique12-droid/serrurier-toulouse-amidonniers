@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page introuvable — Serrurier Toulouse Amidonniers</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#16211C" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --paper:#DCEDE6;--ink:#16211C;--ink-2:#44524B;--green:#86BFAA;--green-tx:#2C5E4B;
+      --sans:'Inter',system-ui,sans-serif;--serif:'Bricolage Grotesque',Georgia,serif;
+      --ease:cubic-bezier(.19,1,.22,1);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--sans);color:var(--ink);
+      background:linear-gradient(168deg,#C6E1D5 0%,#D8EBE3 45%,#EAF4EF 100%);
+      min-height:100vh;display:grid;place-items:center;text-align:center;padding:2rem;-webkit-font-smoothing:antialiased}
+    .wrap{max-width:560px}
+    .mark{color:var(--green-tx);margin:0 auto 1.6rem;display:block;animation:float 5s ease-in-out infinite}
+    @keyframes float{50%{transform:translateY(-12px) rotate(-6deg)}}
+    .code{font-family:var(--serif);font-weight:800;font-size:clamp(4rem,16vw,8rem);line-height:1;letter-spacing:-.04em;color:var(--green-tx)}
+    h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.5rem,4vw,2.2rem);letter-spacing:-.02em;margin:.4rem 0 1rem}
+    p{color:var(--ink-2);font-size:1.05rem;line-height:1.6;margin-bottom:2rem}
+    .row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sans);font-weight:600;font-size:1rem;
+      padding:.95rem 1.6rem;border-radius:3px;border:1px solid var(--ink);text-decoration:none;transition:.3s var(--ease)}
+    .solid{background:var(--ink);color:var(--paper)}
+    .solid:hover{background:var(--green);border-color:var(--green);color:var(--ink);transform:translateY(-2px)}
+    .ghost{background:transparent;color:var(--ink);border-color:rgba(22,33,28,.2)}
+    .ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+    .sig{margin-top:2.4rem;font-size:.85rem;color:var(--ink-2)}
+    .sig strong{color:var(--ink);font-family:var(--serif)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 90 90" width="78" height="78" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="34" cy="34" r="20"/><path d="M48 48 L74 74"/><path d="M64 64 l8 -8 M70 70 l7 -7"/>
+      </g>
+    </svg>
+    <div class="code">404</div>
+    <h1>Cette porte n’existe pas.</h1>
+    <p>La page que vous cherchez est introuvable — mais pour une vraie porte fermée, Quentin, lui, sait l’ouvrir.</p>
+    <div class="row">
+      <a href="https://viudesdominique12-droid.github.io/serrurier-toulouse-amidonniers/" class="btn solid">Retour à l’accueil</a>
+      <a href="tel:+33669209971" class="btn ghost">Appeler le 06 69 20 99 71</a>
+    </div>
+    <p class="sig"><strong>Serrurier Toulouse Amidonniers</strong> — Dépannage 24h/24, 7j/7 · à vélo dans tout Toulouse.</p>
+  </div>
+</body>
+</html>

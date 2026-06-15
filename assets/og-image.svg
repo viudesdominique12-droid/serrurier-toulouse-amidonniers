@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#86BFAA"/>
+      <stop offset="1" stop-color="#5FA98C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="120" r="260" fill="#ffffff" opacity="0.10"/>
+  <circle cx="160" cy="560" r="220" fill="#0f2a23" opacity="0.10"/>
+  <g transform="translate(90,150)" fill="none" stroke="#12302A" stroke-width="14" stroke-linecap="round">
+    <circle cx="70" cy="70" r="48"/>
+    <circle cx="70" cy="70" r="14" fill="#12302A" stroke="none"/>
+    <path d="M104 104 L196 196"/>
+    <path d="M168 168 l22 -22 M188 188 l18 -18"/>
+  </g>
+  <text x="90" y="430" font-family="'Plus Jakarta Sans',Arial,sans-serif" font-size="78" font-weight="800" fill="#12302A">Serrurier Toulouse</text>
+  <text x="90" y="510" font-family="'Plus Jakarta Sans',Arial,sans-serif" font-size="78" font-weight="800" fill="#ffffff">Amidonniers</text>
+  <text x="92" y="575" font-family="Arial,sans-serif" font-size="34" fill="#0f2a23">Dépannage 24h/24 · 7j/7 · à vélo · dès 40€ · 06 69 20 99 71</text>
+</svg>

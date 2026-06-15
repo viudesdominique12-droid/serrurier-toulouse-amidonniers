@@ -1,0 +1,13 @@
+# Config locale de l'éditeur / preview
+.claude/
+.playwright-mcp/
+
+# Captures de test
+preview-*.jpeg
+p1-*.jpeg
+p2-*.jpeg
+p3-*.jpeg
+p4-*.jpeg
+
+# Système
+.DS_Store
