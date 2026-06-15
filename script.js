@@ -9,7 +9,7 @@
   var lenis = null;
   if (window.Lenis && !reduce) {
     try {
-      lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true });
+      lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true, syncTouch: true, syncTouchLerp: 0.08, touchInertiaMultiplier: 20 });
       var rafLoop = function (t) { lenis.raf(t); requestAnimationFrame(rafLoop); };
       requestAnimationFrame(rafLoop);
     } catch (e) { lenis = null; }
@@ -473,6 +473,41 @@
     if (bar && 'vibrate' in navigator) {
       bar.addEventListener('click', function () { try { navigator.vibrate(18); } catch (e) {} });
     }
+  })();
+
+  /* Inclinaison de la carte hero au mouvement du téléphone (gyroscope) */
+  (function () {
+    if (reduce) return;
+    if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) return; // desktop = souris déjà gérée
+    var card = document.querySelector('.hero-card');
+    if (!card || !window.DeviceOrientationEvent) return;
+    var base = null, active = false;
+    function handle(e) {
+      if (e.beta == null || e.gamma == null) return;
+      if (base === null) base = e.beta;
+      var rx = Math.max(-9, Math.min(9, (e.beta - base) * 0.5));
+      var ry = Math.max(-12, Math.min(12, e.gamma * 0.45));
+      card.style.transition = 'transform .18s ease-out';
+      card.style.transform = 'perspective(900px) rotateX(' + (-rx).toFixed(1) + 'deg) rotateY(' + ry.toFixed(1) + 'deg)';
+    }
+    function enable() { if (active) return; active = true; window.addEventListener('deviceorientation', handle); }
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      window.addEventListener('touchend', function () {
+        DeviceOrientationEvent.requestPermission().then(function (s) { if (s === 'granted') enable(); }).catch(function () {});
+      }, { once: true });
+    } else { enable(); }
+  })();
+
+  /* Cascade décalée sur les listes */
+  (function () {
+    if (reduce) return;
+    ['.srv-list', '.zone-list'].forEach(function (sel) {
+      var c = document.querySelector(sel);
+      if (!c) return;
+      Array.prototype.forEach.call(c.children, function (ch, i) {
+        if (ch.hasAttribute('data-reveal')) ch.style.setProperty('--rd', (i * 0.08).toFixed(2) + 's');
+      });
+    });
   })();
 
   /* Barre de progression de lecture + parallaxe au scroll */

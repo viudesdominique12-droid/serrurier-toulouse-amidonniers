@@ -459,13 +459,13 @@ body.is-loaded .hero-h1 .ln:nth-child(2)>span{transform:none;transition-delay:.1
 /* =========================================================
    Reveal
    ========================================================= */
-.js .r[data-reveal]{transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.js .r[data-reveal]:not(.in){opacity:0;transform:translateY(22px)}
-.r[data-reveal][data-delay="1"]{transition-delay:.09s}
-.r[data-reveal][data-delay="2"]{transition-delay:.18s}
-.r[data-reveal][data-delay="3"]{transition-delay:.27s}
-.r[data-reveal][data-delay="4"]{transition-delay:.36s}
-.r[data-reveal][data-delay="5"]{transition-delay:.45s}
+.js .r[data-reveal]{transition:opacity .7s ease var(--rd,0s),transform .85s cubic-bezier(.34,1.42,.5,1) var(--rd,0s)}
+.js .r[data-reveal]:not(.in){opacity:0;transform:translateY(30px) scale(.975)}
+.r[data-reveal][data-delay="1"]{--rd:.08s}
+.r[data-reveal][data-delay="2"]{--rd:.16s}
+.r[data-reveal][data-delay="3"]{--rd:.24s}
+.r[data-reveal][data-delay="4"]{--rd:.32s}
+.r[data-reveal][data-delay="5"]{--rd:.40s}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
@@ -608,6 +608,22 @@ summary:focus-visible,[tabindex]:focus-visible,.est-opt:focus-visible{
   .contact-meta dt{min-width:0}
   .contact-meta dd{word-break:break-word}
 }
+
+/* Bandeau défilant */
+.marquee{overflow:hidden;background:var(--ink);color:var(--paper);padding:1.05rem 0;
+  border-block:1px solid rgba(255,255,255,.07)}
+.marquee-row{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.marquee:hover .marquee-row{animation-play-state:paused}
+.marquee-seg{display:flex;align-items:center;gap:1.8rem;padding-right:1.8rem;flex:none}
+.marquee-seg span{font-family:var(--serif);font-weight:700;font-size:clamp(1.05rem,3.2vw,1.7rem);
+  letter-spacing:.01em;white-space:nowrap;text-transform:uppercase}
+.marquee-seg i{color:var(--green);font-style:normal;font-size:.85em;flex:none}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* Micro-interactions */
+.qa summary{transition:padding-left .25s var(--ease),color .25s}
+.qa:hover summary,.qa[open] summary{padding-left:.5rem}
+.qa[open]{background:rgba(134,191,170,.05)}
 
 /* Retour tactile au toucher (appareils sans survol) */
 @media (hover:none){
